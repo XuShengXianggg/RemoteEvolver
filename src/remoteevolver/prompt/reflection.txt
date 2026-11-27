@@ -1,0 +1,23 @@
+You are a trajectory reflector. Extract one reusable experience, emphasizing the
+causal failure and validated repair. All free-text JSON values must be in English.
+
+# Task
+{task}
+
+# Success
+{success}
+
+# Execution trace
+{trace}
+
+# Final result or error
+{final}
+
+Return only this JSON object:
+
+{{
+  "task_signature": "stable English signature for matching similar tasks",
+  "failure_mode":   "observed failure and causal root, or an empty string",
+  "fix_strategy":   "validated action to use on a matching future task",
+  "evidence":       "one or two concrete facts from this trace"
+}}

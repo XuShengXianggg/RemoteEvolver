@@ -1,0 +1,64 @@
+# Relative paths are resolved from this file. Model names are deliberately unset.
+env_file: ../.env
+tasks: ../examples/tasks.jsonl
+mode: train
+workspace: ../workspace/default
+main:
+  model: ${MAIN_MODEL}
+  base_url: ${MAIN_BASE_URL}
+  api_key_env: MAIN_API_KEY
+  temperature: 0
+judge:
+  model: ${JUDGE_MODEL}
+  base_url: ${JUDGE_BASE_URL}
+  api_key_env: JUDGE_API_KEY
+  success_threshold: 0.8
+  timeout_seconds: 180
+  max_retries: 1
+embedding:
+  model: ${EMBEDDING_MODEL}
+  base_url: ${EMBEDDING_BASE_URL}
+  api_key_env: EMBEDDING_API_KEY
+tool_evolution: true
+skill_evolution: true
+tool_config: tool-evolution.yaml
+tools:
+  verification_mode: strict
+  always_exposed: [calculate_ndvi, arithmetic_mean] # Bundled smoke-test tools
+  max_on_demand_evolutions: 3
+agent:
+  max_steps: null  # No execution-step limit
+workflow:
+  retrieve_top_k: 3
+  executable_threshold: 0.75
+  experience_threshold: 0.65
+main_process_options:
+  EVOAGENT_LLM_CHAT_TEMPLATE_KWARGS: '{}'
+  EVOAGENT_LLM_REQUIRED_TOOL_THINKING_POLICY: preserve
+  EVOAGENT_LLM_MAX_COMPLETION_TOKENS: 0
+  EVOAGENT_LLM_TRANSPORT_TIMEOUT_SECONDS: 120
+  EVOAGENT_LLM_CALL_WALL_TIMEOUT_SECONDS: 0
+  EVOAGENT_LLM_RETRY_TIMEOUTS: 1
+runtime:
+  tool_call_timeout_seconds: 180
+  mcp_start_timeout_seconds: 15
+  embedding_timeout_seconds: 180
+  embedding_max_retries: 1
+  github_api_url: https://api.github.com
+  github_timeout_seconds: 30
+  clone_install_timeout_seconds: 180
+  skill_compile_attempts: 2
+  skill_max_bytes: 8192
+  main_call_attempts: 2
+  tool_candidate_top_k: 3
+  tool_repo_attempts: 2
+  tool_wrapper_attempts: 2
+  tool_smoke_timeout_seconds: 60
+# Optional custom files, relative to this YAML; absent = built-in prompts.
+# prompts:
+#   system: ../prompts/system.txt
+#   reflection: ../prompts/reflection.txt
+#   tool_use: ../prompts/tool_use.txt
+mcp_servers: []
+initial_tools_dir: ../examples/initial-tools # Replace with your own initial tools
+# snapshot: ../workspace/training/snapshots/0001-xxxxxxxxxx

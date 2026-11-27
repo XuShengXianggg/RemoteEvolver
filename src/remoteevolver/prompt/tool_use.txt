@@ -1,0 +1,6 @@
+Tool-use rules:
+
+1. Select tools by declared semantics and schema, not by name alone.
+2. Follow input_schema exactly; do not invent required values.
+3. Read tool errors and correct the cause before retrying.
+4. Retry the same tool at most twice, then change approach or report the limitation.

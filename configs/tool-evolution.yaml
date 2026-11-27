@@ -1,0 +1,34 @@
+# Metadata-based coarse ranking. Years are fixed for reproducibility.
+score:
+  relevance_weight: 30
+  stars_log_weight: 3
+  has_license_bonus: 2
+  has_description_bonus: 1
+  no_description_penalty: -1
+  recent_year_threshold: 2025
+  recent_bonus: 2
+  stale_year_threshold: 2022
+  stale_penalty: -3
+
+# README-based assessment. Thresholds guide selection; if none pass,
+# the highest-scoring candidate remains eligible (soft thresholds).
+assessment:
+  weights:
+    semantic: 0.60
+    structural: 0.15
+    toolization: 0.15
+    community: 0.05
+    environment_penalty: 0.05
+  thresholds:
+    semantic: 0.65
+    structural: 0.40
+    toolization: 0.40
+  community:
+    stars_log_divisor: 5.0
+    stars_weight: 0.70
+    license_bonus: 0.15
+    description_bonus: 0.05
+    recent_year_threshold: 2025
+    recent_bonus: 0.10
+    stale_year_threshold: 2021
+    stale_penalty: -0.10
