@@ -51,3 +51,19 @@ To resume an interrupted run, repeat the original command with the same configur
 ## License
 
 This project is licensed under the [MIT License](LICENSE).
+
+
+## Cite
+For more RemoteFamily work, please see https://remotefamily.github.io/.
+
+```
+@misc{xu2026RemoteEvolver,
+      title={RemoteEvolver: Expanding Earth Observation Capabilities through Agent Harness Evolution}, 
+      author={Shengxiang Xu and Liang Yao and Shuyi Chen and Yishu Wang and Shimin Di and Fan Liu and Bishun Yao and Hanghui Guo and Xinyu Liu and Chengye Liang and Yuyu Luo and Min-Ling Zhang},
+      year={2026},
+      eprint={2611.27110},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV},
+      url={https://arxiv.org/abs/2611.27110}, 
+}
+```
